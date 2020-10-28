@@ -1,16 +1,22 @@
 {
 	"name": "vscode-falco",
 	"publisher": "sysdig",
-	"displayName": "vscode-falco",
-	"description": "This extension makes your life easier when editing rule files.",
+	"displayName": "Falco Rules",
+	"description": "This extension makes your life easier when editing Falco rule files.",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.50.0"
 	},
+	"license": "Apache-2.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sysdiglabs/vscode-falco.git"
+	},
+	"homepage": "https://github.com/sysdiglabs/vscode-falco#readme",
 	"categories": [
-		"Snippets",
-		"Other"
+		"Snippets"
 	],
+	"icon": "fileicons/images/shovel.png",
 	"activationEvents": [
 		"onCommand:vscode-falco.helloWorld"
 	],
@@ -39,7 +45,11 @@
 		"snippets": [
 			{
 			  "language": "yaml",
-			  "path": "./snippets/snippets.json"
+			  "path": "./snippets/top-level-snippets.json"
+			},
+			{
+				"language": "yaml",
+				"path": "./snippets/field-class-snippets.json"
 			}
 		]
 	},

@@ -1,0 +1,20 @@
+{
+  "Rule": [
+    {
+      "prefix": "jevt.",
+      "body": [
+        "${1|jevt.time,jevt.rawtime,jevt.value,jevt.obj|}",
+        "$0"
+      ],
+      "description": "`jevt` Field Class: Generic Ways to Access json Events."
+    },
+    {
+      "prefix": "ka.",
+      "body": [
+        "${1|ka.auditid,ka.auth.decision,ka.auth.reason,ka.impuser.name,ka.req.binding.role,ka.req.binding.subjects,ka.req.binding.subject.has_name,ka.req.configmap.name,ka.req.configmap.obj,ka.req.container.host_network,ka.req.container.image,ka.req.container.image.repository,ka.req.container.privileged,ka.req.role.rules,ka.req.role.rules.apiGroups,ka.req.role.rules.nonResourceURLs,ka.req.role.rules.resources,ka.req.role.rules.verbs,ka.req.service.type,ka.req.service.ports,ka.req.volume.hostpath,ka.resp.name,ka.response.code,ka.response.reason,ka.stage,ka.target.name,ka.target.namespace,ka.target.resource,ka.target.subresource,ka.uri,ka.uri.param,ka.user.name,ka.user.groups,ka.verb|}",
+        "$0"
+      ],
+      "description": "`ka` Field Class: Access K8s Audit Log Events."
+    }
+  ]
+}
