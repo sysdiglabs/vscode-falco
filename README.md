@@ -4,13 +4,19 @@ VS Code Extension to help wrtting, editing and testing Falco rule files.
 
 ## Proposed Features
 
-1. Autocompletion
-1. Validation
-1. Syntax highlighting
+1. IntelliSense
+   - Autocompletion
+     - **jevt** Field Class: generic ways to access _json_ events
+     - **ka** Field Class: Access _K8s Audit Log_ Events
+   - Syntax highlighting
+2. File tidying up
+   - Append _new line character_ if the file doesn't end with one.
+3. Rule validation
+4. File icon [x]
 
 ## Implemented Features
 
-None as of yet.
+1. File icon
 
 ## Requirements
 

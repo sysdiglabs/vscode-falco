@@ -8,6 +8,7 @@
 		"vscode": "^1.50.0"
 	},
 	"categories": [
+		"Snippets",
 		"Other"
 	],
 	"activationEvents": [
@@ -33,6 +34,12 @@
 				"injectTo": ["source.yaml"],
 				"scopeName": "todo-comment.injection",
 				"path": "./syntaxes/rule.tmGrammar.json"
+			}
+		],
+		"snippets": [
+			{
+			  "language": "yaml",
+			  "path": "./snippets/snippets.json"
 			}
 		]
 	},
