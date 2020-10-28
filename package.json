@@ -37,15 +37,17 @@
 		],
 		"grammars": [
 			{
-				"injectTo": ["source.yaml"],
+				"injectTo": [
+					"source.yaml"
+				],
 				"scopeName": "todo-comment.injection",
 				"path": "./syntaxes/rule.tmGrammar.json"
 			}
 		],
 		"snippets": [
 			{
-			  "language": "yaml",
-			  "path": "./snippets/top-level-snippets.json"
+				"language": "yaml",
+				"path": "./snippets/top-level-snippets.json"
 			},
 			{
 				"language": "yaml",
