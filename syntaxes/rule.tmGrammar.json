@@ -1,0 +1,15 @@
+{
+    "scopeName": "todo-comment.injection",
+    "injectionSelector": "L:comment.line.number-sign",
+    "patterns": [
+        {
+            "include": "#todo-keyword"
+        }
+    ],
+    "repository": {
+        "todo-keyword": {
+            "match": "TODO",
+            "name": "keyword.todo"
+        }
+    }
+}
