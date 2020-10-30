@@ -1,7 +1,6 @@
 # Change Log
 
 ## [Unreleased]
-- Syntax highlighting.
 - Rule validation.
 
 ## [0.0.1] - Initial release
