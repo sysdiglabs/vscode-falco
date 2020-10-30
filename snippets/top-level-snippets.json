@@ -4,17 +4,17 @@
       "prefix": "- rule",
       "body": [
         "$LINE_COMMENT ${1:OPTIONAL RULE COMMENTS}",
-        "- rule: ${2:Rule Name (all caps)}",
-        "  desc: ${3:Description (ends with full stop).}",
+        "- rule: ${2:Rule Name with Capital Initial Letters}",
+        "  desc: ${3:Rule description (begins with 'Detect' and ends with full stop).}",
         "  enabled: ${4|true,false|}",
-        "  append: ${5|true,false|}",
+        "  append: ${5|false,true|}",
         "  condition:",
         "    ${6:Condition(s)}",
         "  output:",
         "    ${7:Output message}",
         "  priority: ${8|DEBUG,INFO,NOTICE,WARNING,ERROR,CRITICAL,ALERT,EMERGENCY|}",
-        "  tags: ${9|[inline comma separated tag list],\n  - expanded hyphenated list|}",
-        "  source: ${10:source}",
+        "  tags: ${9|[inline comma separated tag list],\n  - multiline hyphenated list|}",
+        "  source: ${10|syscall,k8s_audit|}",
         "$0"
 	  ],
 	  "description": "Define a new rule. Please note that a rule must begin in column 1 and must end with an empty line."
@@ -24,8 +24,8 @@
       "body": [
         "$LINE_COMMENT ${1:OPTIONAL LIST COMMENTS}",
         "- list: ${2:list_name}",
-        "  append: ${3|true,false|}",
-        "  items: ${4|[inline comma separated list],\n  - expanded hyphenated list|}",
+        "  append: ${3|false,true|}",
+        "  items: ${4|[inline comma separated list],\n  - multiline hyphenated list|}",
         "$0"
       ],
       "description": "Define a list to be used in rules. Please note that a list must begin in column 1 and must end with an empty line."
@@ -35,7 +35,7 @@
       "body": [
         "$LINE_COMMENT ${1:OPTIONAL MACRO COMMENTS}",
         "- macro: ${2:macro_name}",
-        "  append: ${3|true,false|}",
+        "  append: ${3|false,true|}",
         "  condition: ${4:macro condition}",
         "$0"
       ],

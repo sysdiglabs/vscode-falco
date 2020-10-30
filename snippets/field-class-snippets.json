@@ -9,12 +9,202 @@
       "description": "`jevt` Field Class: Generic Ways to Access json Events."
     },
     {
+      "prefix": "jevt.time",
+      "body": "jevt.time",
+      "description": "json event timestamp as a string that includes the nanosecond part."
+    },
+    {
+      "prefix": "jevt.rawtime",
+      "body": "jevt.rawtime",
+      "description": "absolute event timestamp, i.e. nanoseconds from epoch."
+    },
+    {
+      "prefix": "jevt.value",
+      "body": "jevt.value[$0]",
+      "description": "General way to access single property from json object. The syntax is [<json pointer expression>]. The property is returned as a string."
+    },
+    {
+      "prefix": "jevt.obj",
+      "body": "jevt.obj",
+      "description": "The entire json object, stringified."
+    },
+    {
       "prefix": "ka.",
       "body": [
         "${1|ka.auditid,ka.auth.decision,ka.auth.reason,ka.impuser.name,ka.req.binding.role,ka.req.binding.subjects,ka.req.binding.subject.has_name,ka.req.configmap.name,ka.req.configmap.obj,ka.req.container.host_network,ka.req.container.image,ka.req.container.image.repository,ka.req.container.privileged,ka.req.role.rules,ka.req.role.rules.apiGroups,ka.req.role.rules.nonResourceURLs,ka.req.role.rules.resources,ka.req.role.rules.verbs,ka.req.service.type,ka.req.service.ports,ka.req.volume.hostpath,ka.resp.name,ka.response.code,ka.response.reason,ka.stage,ka.target.name,ka.target.namespace,ka.target.resource,ka.target.subresource,ka.uri,ka.uri.param,ka.user.name,ka.user.groups,ka.verb|}",
         "$0"
       ],
       "description": "`ka` Field Class: Access K8s Audit Log Events."
+    },
+    {
+      "prefix": "ka.auditid",
+      "body": "ka.auditid",
+      "description": "The unique id of the audit event."
+    },
+    {
+      "prefix": "ka.auth.decision",
+      "body": "ka.auth.decision",
+      "description": "The authorization decision."
+    },
+    {
+      "prefix": "ka.auth.reason",
+      "body": "ka.auth.reason",
+      "description": "The authorization reason."
+    },
+    {
+      "prefix": "ka.impuser.name",
+      "body": "ka.impuser.name",
+      "description": "The impersonated user name."
+    },
+    {
+      "prefix": "ka.req.binding.role",
+      "body": "ka.req.binding.role",
+      "description": "When the request object refers to a cluster role binding, the role being linked by the binding."
+    },
+    {
+      "prefix": "ka.req.binding.subjects",
+      "body": "ka.req.binding.subjects",
+      "description": "When the request object refers to a cluster role binding, the subject (e.g. account/users) being linked by the binding."
+    },
+    {
+      "prefix": "ka.req.binding.subject.has_name",
+      "body": "ka.req.binding.subject.has_name",
+      "description": "When the request object refers to a cluster role binding, returns true if a subject with the provided name exists."
+    },
+    {
+      "prefix": "ka.req.configmap.name",
+      "body": "ka.req.configmap.name",
+      "description": "If the request object refers to a configmap, the configmap name."
+    },
+    {
+      "prefix": "ka.req.configmap.obj",
+      "body": "ka.req.configmap.obj",
+      "description": "If the request object refers to a configmap, the entire configmap object."
+    },
+    {
+      "prefix": "ka.req.container.host_network",
+      "body": "ka.req.container.host_network",
+      "description": "When the request object refers to a container, the value of the hostNetwork flag."
+    },
+    {
+      "prefix": "ka.req.container.image",
+      "body": "ka.req.container.image",
+      "description": "When the request object refers to a container, the container's images. Can be indexed (e.g. ka.req.container.image[0]). Without any index, returns the first image."
+    },
+    {
+      "prefix": "ka.req.container.image.repository",
+      "body": "ka.req.container.image.repository",
+      "description": "The same as req.container.image, but only the repository part (e.g. sysdig/falco)."
+    },
+    {
+      "prefix": "ka.req.container.privileged",
+      "body": "ka.req.container.privileged",
+      "description": "When the request object refers to a container, whether or not any container is run privileged. With an index, returns whether or not the ith container is run privileged."
+    },
+    {
+      "prefix": "ka.req.role.rules",
+      "body": "ka.req.role.rules",
+      "description": "When the request object refers to a role/cluster role, the rules associated with the role."
+    },
+    {
+      "prefix": "ka.req.role.rules.apiGroups",
+      "body": "ka.req.role.rules.apiGroups",
+      "description": "When the request object refers to a role/cluster role, the api groups associated with the role's rules. With an index, returns only the api groups from the ith rule. Without an index, returns all api groups concatenated."
+    },
+    {
+      "prefix": "ka.req.role.rules.nonResourceURLs",
+      "body": "ka.req.role.rules.nonResourceURLs",
+      "description": "When the request object refers to a role/cluster role, the non resource urls associated with the role's rules. With an index, returns only the non resource urls from the ith rule. Without an index, returns all non resource urls concatenated."
+    },
+    {
+      "prefix": "ka.req.role.rules.resources",
+      "body": "ka.req.role.rules.resources",
+      "description": "When the request object refers to a role/cluster role, the resources associated with the role's rules. With an index, returns only the resources from the ith rule. Without an index, returns all resources concatenated."
+    },
+    {
+      "prefix": "ka.req.role.rules.verbs",
+      "body": "ka.req.role.rules.verbs",
+      "description": "When the request object refers to a role/cluster role, the verbs associated with the role's rules. With an index, returns only the verbs from the ith rule. Without an index, returns all verbs concatenated."
+    },
+    {
+      "prefix": "ka.req.service.type",
+      "body": "ka.req.service.type",
+      "description": "When the request object refers to a service, the service type."
+    },
+    {
+      "prefix": "ka.req.service.ports",
+      "body": "ka.req.service.ports",
+      "description": "When the request object refers to a service, the service's ports. Can be indexed (e.g. ka.req.service.ports[0]). Without any index, returns all ports."
+    },
+    {
+      "prefix": "ka.req.volume.hostpath",
+      "body": "ka.req.volume.hostpath",
+      "description": "If the request object contains volume definitions, whether or not a hostPath volume exists that mounts the specified path from the host (...hostpath[/etc]=true if a volume mounts /etc from the host). The index can be a glob, in which case all volumes are considered to find any path matching the specified glob (...hostpath[/usr/*] would match either /usr/local or /usr/bin)."
+    },
+    {
+      "prefix": "ka.resp.name",
+      "body": "ka.resp.name",
+      "description": "The response object name."
+    },
+    {
+      "prefix": "ka.response.code",
+      "body": "ka.response.code",
+      "description": "The response code."
+    },
+    {
+      "prefix": "ka.response.reason",
+      "body": "ka.response.reason",
+      "description": "The response reason (usually present only for failures)."
+    },
+    {
+      "prefix": "ka.stage",
+      "body": "ka.stage",
+      "description": "Stage of the request (e.g. RequestReceived, ResponseComplete, etc.)"
+    },
+    {
+      "prefix": "ka.target.name",
+      "body": "ka.target.name",
+      "description": "The target object name."
+    },
+    {
+      "prefix": "ka.target.namespace",
+      "body": "ka.target.namespace",
+      "description": "The target object namespace."
+    },
+    {
+      "prefix": "ka.target.resource",
+      "body": "ka.target.resource",
+      "description": "The target object resource."
+    },
+    {
+      "prefix": "ka.target.subresource",
+      "body": "ka.target.subresource",
+      "description": "The target object subresource."
+    },
+    {
+      "prefix": "ka.uri",
+      "body": "ka.uri",
+      "description": "The request URI as sent from client to server."
+    },
+    {
+      "prefix": "ka.uri.param",
+      "body": "ka.uri.param",
+      "description": "The value of a given query parameter in the uri (e.g. when uri=/foo?key=val, ka.uri.param[key] is val)."
+    },
+    {
+      "prefix": "ka.user.name",
+      "body": "ka.user.name",
+      "description": "The user name performing the request."
+    },
+    {
+      "prefix": "ka.user.groups",
+      "body": "ka.user.groups",
+      "description": "The groups to which the user belongs."
+    },
+    {
+      "prefix": "ka.verb",
+      "body": "ka.verb",
+      "description": "The action being performed."
     }
   ]
 }

@@ -1,9 +1,13 @@
 # Change Log
 
-All notable changes to the extension extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
 ## [Unreleased]
+- Syntax highlighting.
+- Rule validation.
 
-- Initial release
+## [0.0.1] - Initial release
+### Added
+- Autocompletion for top-level elements.
+- Autocompletion for event access.
+- Syntax highlighting.
+- Priority levels coloring.
+- File icons.

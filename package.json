@@ -14,7 +14,8 @@
 	},
 	"homepage": "https://github.com/sysdiglabs/vscode-falco#readme",
 	"categories": [
-		"Snippets"
+		"Snippets",
+		"Themes"
 	],
 	"icon": "fileicons/images/shovel.png",
 	"activationEvents": [
@@ -35,22 +36,36 @@
 				"path": "./fileicons/sysdig-icon-theme.json"
 			}
 		],
+		"languages": [
+			{
+				"id": "rules",
+				"extensions": [".yaml"],
+				"aliases": ["Rules", "yaml"],
+				"configuration": "./languages/rules-language.json"
+			}
+		],
 		"grammars": [
 			{
-				"injectTo": [
-					"source.yaml"
-				],
-				"scopeName": "todo-comment.injection",
+				"language": "rules",
+				"scopeName": "rule.yaml",
 				"path": "./syntaxes/rule.tmGrammar.json"
+			}
+		],
+		"themes": [
+			{
+				"id": "vs-dark-rule-theme",
+				"label": "rules-dark-theme",
+				"uiTheme": "vs-dark",
+				"path": "./colorthemes/vs-dark-rule-theme.json"
 			}
 		],
 		"snippets": [
 			{
-				"language": "yaml",
+				"language": "rules",
 				"path": "./snippets/top-level-snippets.json"
 			},
 			{
-				"language": "yaml",
+				"language": "rules",
 				"path": "./snippets/field-class-snippets.json"
 			}
 		]

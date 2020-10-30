@@ -1,15 +1,106 @@
 {
-    "scopeName": "todo-comment.injection",
-    "injectionSelector": "L:comment.line.number-sign",
+    "scopeName": "rule.yaml",
     "patterns": [
         {
-            "include": "#todo-keyword"
+            "name": "comment.definition",
+            "match": "#.*$"
+        },
+        {
+            "name": "rule.definition",
+            "match": "^- rule:"
+        },
+        {
+            "name": "rule.description",
+            "match": "^(\\s+)desc:"
+        },
+        {
+            "name": "rule.condition",
+            "match": "^(\\s+)condition:"
+        },
+        {
+            "name": "rule.output",
+            "match": "^(\\s+)output:"
+        },
+        {
+            "name": "rule.priority",
+            "match": "^(\\s+)(priority):\\s+((DEBUG)|(INFO)|(NOTICE)|(WARNING)|(ERROR)|(CRITICAL)|(ALERT)|(EMERGENCY))",
+            "captures": {
+                "2": {"name": "rule.priority.tag"},
+                "3": {"name": "rule.priority.level"},
+                "4": {"name": "rule.priority.level.debug"},
+                "5": {"name": "rule.priority.level.info"},
+                "6": {"name": "rule.priority.level.notice"},
+                "7": {"name": "rule.priority.level.warning"},
+                "8": {"name": "rule.priority.level.error"},
+                "9": {"name": "rule.priority.level.critical"},
+                "10": {"name": "rule.priority.level.alert"},
+                "11": {"name": "rule.priority.level.emergency"}
+            }
+        },
+        {
+            "name": "rule.tags",
+            "match": "^(\\s+(tags:\\s+\\[)([^\\]]*)(\\]))|(\\s+tags:)",
+            "captures": {
+                "2": {"name": "rule.tags.tag"},
+                "4": {"name": "rule.tags.tag"},
+                "5": {"name": "rule.tags.tag"}
+            }        },
+        {
+            "name": "rule.source",
+            "match": "^(\\s+)source:"
+        },
+        {
+            "name": "rule.enabled",
+            "match": "^(\\s+)(enabled):\\s+(true|false)",
+            "captures": {
+                "2": {"name": "rule.enabled.tag"},
+                "3": {"name": "rule.boolean"}
+            }
+        },
+        {
+            "name": "rule.append",
+            "match": "^(\\s+)(append):\\s+(true|false)",
+            "captures": {
+                "2": {"name": "rule.append.tag"},
+                "3": {"name": "rule.boolean"}
+            }
+        },
+        {
+            "name": "rule.boolean",
+            "match": "true|false"
+        },
+        {
+            "name": "rule.value",
+            "match": "(jevt.value\\[)([^\\]]*)(\\])",
+            "captures": {
+                "1": {"name": "rule.jevt"},
+                "3": {"name": "rule.jevt"} 
+            }
+        },
+        {
+            "name": "rule.jevt",
+            "match": "jevt.time|jevt.rawtime|jevt.obj"
+        },
+        {
+            "name": "rule.K8s.event",
+            "match": "ka.auditid|ka.auth.decision|ka.auth.reason|ka.impuser.name|ka.req.binding.role|ka.req.binding.subjects|ka.req.binding.subject.has_name|ka.req.configmap.name|ka.req.configmap.obj|ka.req.container.host_network|ka.req.container.image.repository|ka.req.container.image|ka.req.container.privileged|ka.req.role.rules.apiGroups|ka.req.role.rules.nonResourceURLs|ka.req.role.rules.resources|ka.req.role.rules.verbs|ka.req.role.rules|ka.req.service.type|ka.req.service.ports|ka.req.volume.hostpath|ka.resp.name|ka.response.code|ka.response.reason|ka.stage|ka.target.namespace|ka.target.name|ka.target.resource|ka.target.subresource|ka.uri.param|ka.uri|ka.user.name|ka.user.groups|ka.verb"
+        },
+        {
+            "name": "list.definition",
+            "match": "^- list:"
+        },
+        {
+            "name": "list.items",
+            "match": "^(\\s+(items:\\s+\\[)([^\\]]*)(\\]))|(\\s+items:)",
+            "captures": {
+                "2": {"name": "list.items.tag"},
+                "4": {"name": "list.items.tag"},
+                "5": {"name": "list.items.tag"}
+            }
+        },
+        {
+            "name": "macro.definition",
+            "match": "^- macro:"
         }
-    ],
-    "repository": {
-        "todo-keyword": {
-            "match": "TODO",
-            "name": "keyword.todo"
-        }
-    }
+    ]
 }

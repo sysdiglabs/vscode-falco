@@ -1,0 +1,76 @@
+{
+    "name": "vs-dark-rule-theme",
+    "type": "dark",
+    "colors": {
+        "editor.background": "#1B1B1B",
+        "editor.foreground": "#00BCD4",
+        "editor.lineHighlightBackground": "#2B2B2B"
+    },
+    "tokenColors": [
+        {
+            "name": "Italic",
+            "scope": [
+                "comment"
+            ],
+            "settings": {
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "name": "Bold",
+            "scope": [
+                "rule.definition",
+                "rule.description",
+                "rule.condition",
+                "rule.output",
+                "rule.priority",
+                "rule.tags.tag",
+                "rule.source",
+                "rule.enabled",
+                "rule.append",
+                "list.definition",
+                "list.items.tag",
+                "macro.definition"
+            ],
+            "settings": {
+                "fontStyle": "bold",
+                "foreground": "#00BCD4"
+            }
+        },
+        {
+            "name": "Blue",
+            "scope": ["rule.jevt", "rule.K8s.event"],
+            "settings": {"foreground": "#00BCD4"}
+        },
+        {
+            "name": "Peach Puff",
+            "scope": ["rule.boolean"],
+            "settings": {"foreground": "#EBCFB2"}
+        },
+        {
+            "name": "Green Pantone",
+            "scope": ["rule.priority.level.info", "rule.priority.level.notice"],
+            "settings": {"foreground": "#4DAA57"}
+        },
+        {
+            "name": "Mango Tango",
+            "scope": ["rule.priority.level.warning", "rule.priority.level.error"],
+            "settings": {"foreground": "#F0803C"}
+        },
+        {
+            "name": "International Orange",
+            "scope": ["rule.priority.level.critical", "rule.priority.level.alert", "rule.priority.level.emergency"],
+            "settings": {"foreground": "#BA1200"}
+        },
+        {
+            "name": "Gray",
+            "scope": [
+                "rule.yaml",
+                "rule.priority.level.debug"
+            ],
+            "settings": {
+                "foreground": "#4b6869"
+            }
+        }
+    ]
+}
