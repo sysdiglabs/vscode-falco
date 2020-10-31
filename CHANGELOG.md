@@ -5,8 +5,9 @@
 
 ## [0.0.1] - Initial release
 ### Added
-- Autocompletion for top-level elements.
-- Autocompletion for event access.
-- Syntax highlighting.
+- Tooltips for rule, list and macro keywords.
 - Priority levels coloring.
+- Syntax highlighting.
+- Autocompletion for event access.
+- Autocompletion for top-level elements.
 - File icons.
