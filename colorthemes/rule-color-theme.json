@@ -2,9 +2,7 @@
     "name": "vs-dark-rule-theme",
     "type": "dark",
     "colors": {
-        "editor.background": "#1B1B1B",
-        "editor.foreground": "#00BCD4",
-        "editor.lineHighlightBackground": "#2B2B2B"
+
     },
     "tokenColors": [
         {

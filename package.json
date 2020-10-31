@@ -19,20 +19,21 @@
 	],
 	"icon": "fileicons/images/shovel.png",
 	"activationEvents": [
-		"onCommand:vscode-falco.helloWorld"
+		"onCommand:vscode-falco.validateRule",
+		"onLanguage:rules"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "vscode-falco.helloWorld",
-				"title": "Hello World"
+				"command": "vscode-falco.validateRule",
+				"title": "Validate Rule"
 			}
 		],
 		"iconThemes": [
 			{
 				"id": "sysdig-shovel",
-				"label": "Rules",
+				"label": "Rule file icons",
 				"path": "./fileicons/sysdig-icon-theme.json"
 			}
 		],
@@ -54,9 +55,10 @@
 		"themes": [
 			{
 				"id": "vs-dark-rule-theme",
-				"label": "rules-dark-theme",
+				"label": "Rule file dark theme",
 				"uiTheme": "vs-dark",
-				"path": "./colorthemes/vs-dark-rule-theme.json"
+				"language": "rules",
+				"path": "./colorthemes/rule-color-theme.json"
 			}
 		],
 		"snippets": [
