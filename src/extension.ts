@@ -1,24 +1,56 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
+import { monitorEventLoopDelay } from 'perf_hooks';
 import * as vscode from 'vscode';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "vscode-falco" is now active!');
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('vscode-falco.validateRule', () => {
+	let disposable = vscode.commands.registerCommand('vscode-falco.validateRule', async () => {
 		// The code you place here will be executed every time your command is executed
+		var vscode = require("vscode");
+		var path = require("path");
+		var currentlyOpenTabFilePath = vscode.window.activeTextEditor.document.fileName;
+		var cotfn = path.basename(currentlyOpenTabFilePath);
+		var cotfp = path.dirname(currentlyOpenTabFilePath);
 
-		// Display a message box to the user
+		const ruleContainerExport = 'eval $(docker-machine env default)';
+		const ruleValidatorCmd = `docker run -v ${cotfp}:/rule --rm falcosecurity/falco-no-driver:latest falco -V ./rule/${cotfn} > validaterule.out`;
+		const ruleRemoveResultCmd = 'rm -f validaterule.out';
+		
+		const terminal = vscode.window.createTerminal(`Rule Validation`);
+		terminal.sendText(ruleContainerExport);
+		terminal.sendText(ruleRemoveResultCmd);
+		terminal.sendText(ruleValidatorCmd);
+
+		const uri = vscode.Uri.parse(`${cotfp}/validaterule.out`);
+
+		let existe = false;
+		let texto = '';
+		while (!existe) {
+			try {
+				await vscode.workspace.fs.stat(uri);
+				//texto = vscode.window.showTextDocument(uri, { viewColumn: vscode.ViewColumn.Beside });
+				let f = await vscode.workspace.fs.readFile(uri);
+				texto = await f.toString();
+				if (texto!='') existe = true;
+			} catch {
+				existe = false;
+			}
+		}
+		terminal.sendText(ruleRemoveResultCmd);
+		if (texto.trim()=='Ok') {
+			vscode.window.showInformationMessage(texto);
+		} else {
+			vscode.window.showErrorMessage(texto);
+		}
 		//let r = vscode.workspace.getConfiguration('falcoRules').get('editor.background');
-		vscode.window.showInformationMessage('This is a work in progress...');
 	});
 
 	// Detects change in the extension configuration.

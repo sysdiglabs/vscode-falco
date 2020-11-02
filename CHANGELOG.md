@@ -1,10 +1,10 @@
 # Change Log
 
 ## [Unreleased]
-- Rule validation.
 
 ## [0.0.1] - Initial release
 ### Added
+- Rule validation via `Validate Rule` command.
 - Tooltips for rule, list and macro keywords.
 - Priority levels coloring.
 - Syntax highlighting.
