@@ -17,7 +17,7 @@
 		"Snippets",
 		"Themes"
 	],
-	"icon": "fileicons/images/shovel.png",
+	"icon": "fileicons/images/falco.png",
 	"activationEvents": [
 		"onCommand:vscode-falco.validateRule",
 		"onLanguage:rules"
