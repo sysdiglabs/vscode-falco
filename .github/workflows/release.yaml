@@ -1,0 +1,65 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Extract tag name
+      id: tag
+      run: echo ::set-output name=VERSION::$(echo "${{ github.ref }}" | sed -e 's/.*\/v\(.*\)/\1/')
+
+    - name: Setup Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: '^1.15'
+
+    - name: Setup go-chglog
+      run: go get -u github.com/git-chglog/git-chglog/cmd/git-chglog
+
+    - name: Generate changelog
+      run: git-chglog -c .github/git-chglog/config.yml -o RELEASE_CHANGELOG.md $(git describe --tags $(git rev-list --tags --max-count=1))
+
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{ github.ref }}
+        draft: true
+        prerelease: false
+        body_path: RELEASE_CHANGELOG.md
+
+          #  package:
+          #    runs-on: ubuntu-latest
+          #
+          #    steps:
+          #    - uses: actions/checkout@v2
+          #      with:
+          #        fetch-depth: 0
+          #
+          #    - name: Release package
+          #      run: make package
+          #
+          #    - name: Upload Release Asset
+          #      uses: actions/upload-release-asset@v1
+          #      env:
+          #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #      with:
+          #        upload_url: ${{ needs.release.outputs.upload_url }}
+          #        asset_path: ./vscode-falco-0.1.0.vsix
+          #        asset_name: vscode-falco-0.1.0.vsix
+          #        asset_content_type: application/octet-stream
