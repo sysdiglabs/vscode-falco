@@ -1,0 +1,10 @@
+{
+    "iconDefinitions": {
+      "_rule_file": {
+        "iconPath": "./images/falco.png"
+      }
+    },
+    "fileExtensions": {
+      "yaml": "_rule_file"
+    }
+}
