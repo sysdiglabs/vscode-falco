@@ -1,9 +1,9 @@
 {
 	"name": "vscode-falco",
-	"publisher": "sysdig",
+	"publisher": "sysdiglabs",
 	"displayName": "Falco Rules",
 	"description": "This extension makes your life easier when editing Falco rule files.",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.50.0"
 	},
@@ -32,16 +32,21 @@
 		],
 		"iconThemes": [
 			{
-				"id": "sysdig-shovel",
+				"id": "falco",
 				"label": "Rule file icons",
-				"path": "./fileicons/sysdig-icon-theme.json"
+				"path": "./fileicons/falco-icon-theme.json"
 			}
 		],
 		"languages": [
 			{
 				"id": "rules",
-				"extensions": [".yaml"],
-				"aliases": ["Rules", "yaml"],
+				"extensions": [
+					".yaml"
+				],
+				"aliases": [
+					"Rules",
+					"yaml"
+				],
 				"configuration": "./languages/rules-language.json"
 			}
 		],

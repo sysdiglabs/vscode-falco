@@ -11,12 +11,12 @@
     {
       "prefix": "jevt.time",
       "body": "jevt.time",
-      "description": "json event timestamp as a string that includes the nanosecond part."
+      "description": "Event timestamp as a string that includes the nanosecond part."
     },
     {
       "prefix": "jevt.rawtime",
       "body": "jevt.rawtime",
-      "description": "absolute event timestamp, i.e. nanoseconds from epoch."
+      "description": "Absolute event timestamp, i.e. nanoseconds from epoch."
     },
     {
       "prefix": "jevt.value",

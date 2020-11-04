@@ -23,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const ruleContainerExport = 'eval $(docker-machine env default)';
 		const ruleValidatorCmd = `docker run -v ${cotfp}:/rule --rm falcosecurity/falco-no-driver:latest falco -V ./rule/${cotfn} > validaterule.out`;
 		const ruleRemoveResultCmd = 'rm -f validaterule.out';
-		
+
 		const terminal = vscode.window.createTerminal(`Rule Validation`);
 		terminal.sendText(ruleContainerExport);
 		terminal.sendText(ruleRemoveResultCmd);
@@ -31,24 +31,24 @@ export function activate(context: vscode.ExtensionContext) {
 
 		const uri = vscode.Uri.parse(`${cotfp}/validaterule.out`);
 
-		let existe = false;
-		let texto = '';
-		while (!existe) {
+		let exists = false;
+		let text = '';
+		while (!exists) {
 			try {
 				await vscode.workspace.fs.stat(uri);
-				//texto = vscode.window.showTextDocument(uri, { viewColumn: vscode.ViewColumn.Beside });
+				//text = vscode.window.showTextDocument(uri, { viewColumn: vscode.ViewColumn.Beside });
 				let f = await vscode.workspace.fs.readFile(uri);
-				texto = await f.toString();
-				if (texto!='') existe = true;
+				text = await f.toString();
+				if (text!='') exists = true;
 			} catch {
-				existe = false;
+				exists = false;
 			}
 		}
 		terminal.sendText(ruleRemoveResultCmd);
-		if (texto.trim()=='Ok') {
-			vscode.window.showInformationMessage(texto);
+		if (text.trim()=='Ok') {
+			vscode.window.showInformationMessage(text);
 		} else {
-			vscode.window.showErrorMessage(texto);
+			vscode.window.showErrorMessage(text);
 		}
 		//let r = vscode.workspace.getConfiguration('falcoRules').get('editor.background');
 	});
