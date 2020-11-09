@@ -2,9 +2,13 @@
     "iconDefinitions": {
       "_rule_file": {
         "iconPath": "./images/falco.png"
+      },
+      "_call_file": {
+        "iconPath": "./images/call.png"
       }
     },
     "fileExtensions": {
-      "yaml": "_rule_file"
+      "yaml": "_rule_file",
+      "json": "_call_file"
     }
 }
